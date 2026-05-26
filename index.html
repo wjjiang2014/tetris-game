@@ -26,12 +26,7 @@ body {
   gap: 24px;
   align-items: flex-start;
 }
-canvas {
-  border: 3px solid #333;
-  border-radius: 8px;
-  box-shadow: 0 0 40px rgba(100, 100, 255, 0.3);
-  background: #111;
-}
+canvas { border-radius: 8px; background: #111; }
 #sidebar {
   display: flex;
   flex-direction: column;
@@ -45,24 +40,16 @@ canvas {
   border: 1px solid rgba(255,255,255,0.1);
 }
 .panel h3 {
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #888;
-  margin-bottom: 8px;
-  letter-spacing: 2px;
+  font-size: 12px; text-transform: uppercase; color: #888; margin-bottom: 8px; letter-spacing: 2px;
 }
 .panel .value {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 28px; font-weight: bold;
   background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 #next-canvas { border-radius: 4px; background: #111; }
 #controls-info { font-size: 12px; line-height: 2; color: #aaa; }
-#controls-info kbd {
-  background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 3px; font-size: 11px;
-}
+#controls-info kbd { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 3px; font-size: 11px; }
 
 /* ====== GAME OVER / START OVERLAY ====== */
 #overlay {
@@ -84,71 +71,74 @@ canvas {
 }
 #restart-btn:hover { transform: scale(1.05); }
 
-/* ====== Game Boy 手柄布局 ====== */
+/* ====== Game Boy 手柄布局（手机紧凑版）===== */
 #gameboy {
-  display: none; width: 380px; background: #2a2a4a;
-  border-radius: 24px 24px 60px 60px; padding: 24px 20px 36px;
-  box-shadow: inset 0 -4px 12px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.5);
+  display: none;
+  width: min(340px, 96vw);
+  background: #2a2a4a;
+  border-radius: 20px 20px 50px 50px;
+  padding: 12px 14px 24px;
+  box-shadow: inset 0 -3px 10px rgba(0,0,0,0.4), 0 6px 24px rgba(0,0,0,0.5);
 }
-#gb-screen { text-align: center; margin-bottom: 20px; }
-#gb-canvas { border-radius: 12px; background: #000; display: block; margin: 0 auto; }
+#gb-screen { text-align: center; }
+#gb-canvas {
+  border-radius: 8px; background: #000; display: block; margin: 0 auto;
+}
 #gb-stats {
-  display: flex; justify-content: space-around; margin-top: 8px;
-  font-size: 13px; color: #aaa;
+  display: flex; justify-content: space-around; margin-top: 6px;
+  font-size: 12px; color: #aaa;
 }
 #gb-stats span { color: #667eea; font-weight: bold; }
 
 /* D-Pad */
 #dpad {
-  position: relative; width: 140px; height: 140px; margin: 8px auto 20px;
+  position: relative; width: 130px; height: 130px; margin: 8px auto 12px;
 }
 #dpad .dpad-btn {
-  position: absolute; width: 44px; height: 44px;
+  position: absolute; width: 40px; height: 40px;
   background: #1a1a3a; border: 2px solid rgba(255,255,255,0.15);
-  border-radius: 8px; color: #ccc; font-size: 20px;
+  border-radius: 6px; color: #ccc; font-size: 18px;
   display: flex; align-items: center; justify-content: center; cursor: pointer;
 }
 #dpad .dpad-btn:active { background: rgba(102,126,234,0.5); }
-#dpad .dpad-up    { top: 0; left: 48px; border-radius: 8px 8px 0 0; }
-#dpad .dpad-down  { bottom: 0; left: 48px; border-radius: 0 0 8px 8px; }
-#dpad .dpad-left  { top: 48px; left: 0; border-radius: 8px 0 0 8px; }
-#dpad .dpad-right { top: 48px; right: 0; border-radius: 0 8px 8px 0; }
-#dpad .dpad-center { top: 48px; left: 48px; pointer-events: none; }
+#dpad .dpad-up    { top: 0; left: 45px; border-radius: 8px 8px 0 0; }
+#dpad .dpad-down  { bottom: 0; left: 45px; border-radius: 0 0 8px 8px; }
+#dpad .dpad-left  { top: 45px; left: 0; border-radius: 8px 0 0 8px; }
+#dpad .dpad-right { top: 45px; right: 0; border-radius: 0 8px 8px 0; }
+#dpad .dpad-center { top: 45px; left: 45px; pointer-events: none; }
 
 /* Action buttons */
 #actions {
   display: flex; justify-content: space-between; align-items: center;
-  margin-top: 10px; padding: 0 10px;
+  margin-top: 4px; padding: 0 6px;
 }
 .action-btn {
-  width: 60px; height: 60px; border-radius: 50%;
-  font-size: 14px; font-weight: bold; border: none; color: #fff; cursor: pointer;
+  width: 56px; height: 56px; border-radius: 50%;
+  font-size: 13px; font-weight: bold; border: none; color: #fff; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
 }
 #btn-rotate {
   background: radial-gradient(circle at 30% 30%, #f093fb, #764ba2);
-  box-shadow: 0 4px 8px rgba(118,75,162,0.5);
+  box-shadow: 0 3px 8px rgba(118,75,162,0.5);
 }
 #btn-rotate:active { transform: scale(0.92); }
 #btn-drop {
   background: radial-gradient(circle at 30% 30%, #667eea, #4a3ab2);
-  box-shadow: 0 4px 8px rgba(74,58,178,0.5);
+  box-shadow: 0 3px 8px rgba(74,58,178,0.5);
 }
 #btn-drop:active { transform: scale(0.92); }
 
-/* Pause button */
 #pause-btn {
   background: transparent; border: 2px solid rgba(255,255,255,0.3); color: #aaa;
-  width: 36px; height: 36px; border-radius: 50%; font-size: 16px; cursor: pointer;
+  width: 32px; height: 32px; border-radius: 50%; font-size: 14px; cursor: pointer;
 }
 
 /* ====== 手机端响应式 ====== */
 @media (max-width: 768px) {
-  body { align-items: flex-start; padding-top: env(safe-area-inset-top, 10px); }
+  body { align-items: flex-start; padding-top: env(safe-area-inset-top, 6px); }
   #game-wrapper, #mobile-controls { display: none !important; }
-  #gameboy { display: block; width: min(360px, 95vw); margin: auto; }
+  #gameboy { display: block; margin: auto; }
 }
-
 @media (min-width: 769px) {
   #gameboy { display: none !important; }
 }
@@ -171,10 +161,10 @@ canvas {
   </div>
 </div>
 
-<!-- ====== 游戏手柄布局（手机） ====== -->
+<!-- ====== 游戏手柄布局（手机）===== -->
 <div id="gameboy">
   <div id="gb-screen">
-    <canvas id="gb-canvas" width="270" height="540"></canvas>
+    <canvas id="gb-canvas" width="270" height="400"></canvas>
     <div id="gb-stats">
       <div><div>得分</div><span id="gb-score">0</span></div>
       <div><div>等级</div><span id="gb-level">1</span></div>
@@ -203,17 +193,7 @@ canvas {
 </div>
 
 <script>
-// ===== 配置 =====
 const COLS = 10, ROWS = 20;
-
-// 适配屏幕尺寸
-function getCanvasSize() {
-  const isMobile = window.innerWidth <= 768;
-  if (isMobile) {
-    return { w: Math.min(270, window.innerWidth - 20), h: Math.min(540, window.innerHeight * 0.55) };
-  }
-  return { w: 300, h: 600 };
-}
 
 // ===== DOM =====
 let canvas, ctx, BLOCK;
@@ -231,7 +211,6 @@ if (window.innerWidth > 768) {
   nextCanvas = document.getElementById('next-canvas');
   nextCtx = nextCanvas.getContext('2d');
 }
-
 const NEXT_BLOCK = 24;
 
 // ===== 游戏状态 =====
@@ -247,7 +226,7 @@ const SHAPES = {
 const SHAPE_NAMES = Object.keys(SHAPES);
 
 let board = [], current = null, nextPiece = null;
-let score = 0, level = 1, lines = 0;
+let score = 0, level = 1, linesCount = 0;
 let gameRunning = false, paused = false;
 let dropInterval = 800, lastDrop = 0, animFrameId = null;
 
@@ -259,7 +238,6 @@ function createPiece(name) {
 }
 function randomPiece() { return createPiece(SHAPE_NAMES[Math.floor(Math.random() * SHAPE_NAMES.length)]); }
 
-// 碰撞检测（基于传入的 shape）
 function checkCollision(shape, px, py) {
   for (let r = 0; r < shape.length; r++)
     for (let c = 0; c < shape[r].length; c++)
@@ -271,7 +249,7 @@ function checkCollision(shape, px, py) {
   return false;
 }
 
-function rotate(piece) {
+function rotatePiece(piece) {
   const s = piece.shape, rows = s.length, cols = s[0].length;
   const rotated = Array.from({length: cols}, () => Array(rows).fill(0));
   for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) rotated[c][rows - 1 - r] = s[r][c];
@@ -287,6 +265,7 @@ function getGhostY() {
   return current.y + gy;
 }
 
+// 方块锁定 → 先消除行得分，再出新块
 function lockPiece() {
   for (let r = 0; r < current.shape.length; r++)
     for (let c = 0; c < current.shape[r].length; c++)
@@ -295,9 +274,11 @@ function lockPiece() {
         if (y < 0) { gameOver(); return; }
         board[y][x] = current.color;
       }
-  clearLines(); spawnPiece();
+  clearLines(); // 消除行得分
+  spawnPiece();
 }
 
+// 消除行 → 得分（经典计分法：1=100, 2=300, 3=500, 4=800）
 function clearLines() {
   let cleared = 0;
   for (let r = ROWS - 1; r >= 0; r--) {
@@ -306,8 +287,9 @@ function clearLines() {
   }
   if (cleared > 0) {
     const pts = [0, 100, 300, 500, 800];
-    score += pts[cleared] * level; lines += cleared;
-    level = Math.floor(lines / 10) + 1;
+    score += pts[cleared] * level;
+    linesCount += cleared;
+    level = Math.floor(linesCount / 10) + 1;
     dropInterval = Math.max(100, 800 - (level - 1) * 60);
     updateUI();
   }
@@ -321,37 +303,35 @@ function spawnPiece() {
 }
 
 // ===== 绘制 =====
-function drawBlock(ctx, x, y, color, size, ghost) {
+function drawBlock(ctx2, x, y, color, size, ghost) {
   if (ghost) {
-    ctx.strokeStyle = color; ctx.lineWidth = 1.5;
-    ctx.globalAlpha = 0.35;
-    ctx.strokeRect(x * size + 2, y * size + 2, size - 4, size - 4);
-    // 填充虚线效果
-    ctx.setLineDash([3, 3]);
-    ctx.fillStyle = color;
-    ctx.fillRect(x * size + 1, y * size + 1, size - 2, size - 2);
-    ctx.setLineDash([]);
-    ctx.globalAlpha = 1;
+    ctx2.strokeStyle = color; ctx2.lineWidth = 1.5;
+    ctx2.globalAlpha = 0.35;
+    // 虚线方框 + 半透明填充
+    ctx2.setLineDash([4, 4]);
+    ctx2.strokeRect(x * size + 2, y * size + 2, size - 4, size - 4);
+    ctx2.setLineDash([]);
+    ctx2.fillStyle = color;
+    ctx2.fillRect(x * size + 1, y * size + 1, size - 2, size - 2);
+    ctx2.globalAlpha = 1;
     return;
   }
-  ctx.fillStyle = color;
-  ctx.fillRect(x * size, y * size, size, size);
+  ctx2.fillStyle = color;
+  ctx2.fillRect(x * size, y * size, size, size);
   // 高光
-  ctx.fillStyle = 'rgba(255,255,255,0.2)';
-  ctx.fillRect(x * size, y * size, size, 2);
-  ctx.fillRect(x * size, y * size, 2, size);
+  ctx2.fillStyle = 'rgba(255,255,255,0.2)';
+  ctx2.fillRect(x * size, y * size, size, 2);
+  ctx2.fillRect(x * size, y * size, 2, size);
   // 阴影
-  ctx.fillStyle = 'rgba(0,0,0,0.3)';
-  ctx.fillRect(x * size + size - 2, y * size, 2, size);
-  ctx.fillRect(x * size, y * size + size - 2, size, 2);
-  ctx.strokeStyle = 'rgba(0,0,0,0.5)'; ctx.lineWidth = 1;
-  ctx.strokeRect(x * size, y * size, size, size);
+  ctx2.fillStyle = 'rgba(0,0,0,0.3)';
+  ctx2.fillRect(x * size + size - 2, y * size, 2, size);
+  ctx2.fillRect(x * size, y * size + size - 2, size, 2);
+  ctx2.strokeStyle = 'rgba(0,0,0,0.5)'; ctx2.lineWidth = 1;
+  ctx2.strokeRect(x * size, y * size, size, size);
 }
 
 function drawBoard() {
-  // 背景
-  ctx.fillStyle = '#111';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#111'; ctx.fillRect(0, 0, canvas.width, canvas.height);
   // 网格
   ctx.strokeStyle = 'rgba(255,255,255,0.03)';
   for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++)
@@ -385,15 +365,15 @@ function drawNext() {
 }
 
 function updateUI() {
-  const scoreEl = document.getElementById('score');
-  const levelEl = document.getElementById('level');
+  const scoreEl = document.getElementById('score'), levelEl = document.getElementById('level');
   const linesEl = document.getElementById('lines');
   if (scoreEl) scoreEl.textContent = score;
   if (levelEl) levelEl.textContent = level;
-  if (linesEl) linesEl.textContent = lines;
-  // 游戏手柄面板
-  const gs = document.getElementById('gb-score'), gl = document.getElementById('gb-level'), gn = document.getElementById('gb-lines');
-  if (gs) gs.textContent = score; if (gl) gl.textContent = level; if (gn) gn.textContent = lines;
+  if (linesEl) linesEl.textContent = linesCount;
+  // 手机面板
+  const gs = document.getElementById('gb-score'), gl = document.getElementById('gb-level');
+  const gn = document.getElementById('gb-lines');
+  if (gs) gs.textContent = score; if (gl) gl.textContent = level; if (gn) gn.textContent = linesCount;
 }
 
 // ===== 主循环 =====
@@ -404,12 +384,14 @@ function gameLoop(ts) {
   animFrameId = requestAnimationFrame(gameLoop);
 }
 
-// ===== 操作 =====
+// ===== 操作（修复：移动和软降不再得分）=====
 function moveLeft()   { if (gameRunning && !paused && !checkCollision(current.shape, current.x - 1, current.y)) current.x--; }
 function moveRight()  { if (gameRunning && !paused && !checkCollision(current.shape, current.x + 1, current.y)) current.x++; }
-function moveDown()   { if (!gameRunning || paused) return; if (!checkCollision(current.shape, current.x, current.y + 1)) { current.y++; score += 1; updateUI(); } else lockPiece(); }
+// 软降：只加速下落，不加分（经典规则：只有消除行才得分）
+function moveDown()   { if (!gameRunning || paused) return; if (!checkCollision(current.shape, current.x, current.y + 1)) current.y++; else lockPiece(); }
+// 硬降：一次性落底，得分为移动距离*2（硬降奖励分）
 function hardDrop()   { if (!gameRunning || paused) return; let dy = 0; while (!checkCollision(current.shape, current.x, current.y + dy + 1)) dy++; score += dy * 2; current.y += dy; updateUI(); lockPiece(); }
-function doRotate()   { if (gameRunning && !paused) rotate(current); }
+function doRotate()   { if (gameRunning && !paused) rotatePiece(current); }
 
 // ===== 键盘 =====
 document.addEventListener('keydown', e => {
@@ -424,7 +406,7 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// ===== 游戏手柄按钮（手机） =====
+// ===== 游戏手柄按钮（手机）=====
 function bindBtn(id, fn) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -433,11 +415,11 @@ function bindBtn(id, fn) {
   );
 }
 
-// D-pad (带长按加速移动)
+// D-pad（长按加速移动）
 let dpadInterval = null;
 function dpadStart(action) {
   if (!gameRunning || paused) return;
-  const actions = { left: moveLeft, right: moveRight, down: () => { moveDown(); score += 1; updateUI(); }, rotate: doRotate };
+  const actions = { left: moveLeft, right: moveRight, down: moveDown, rotate: doRotate };
   if (actions[action]) actions[action]();
   dpadInterval = setInterval(() => { if (actions[action]) actions[action](); }, 120);
 }
@@ -449,26 +431,17 @@ document.querySelectorAll('.dpad-btn[data-action]').forEach(btn => {
   ['touchend', 'mouseup', 'mouseleave'].forEach(evt => btn.addEventListener(evt, () => dpadEnd()));
 });
 
-// 硬降按钮（长按连续加速下落）
-let dropInterval2 = null;
+// 硬降按钮（长按连续触发）
+let hardDropTimer = null;
 const btnDrop = document.getElementById('btn-drop');
 if (btnDrop) {
-  const startHardDrop = () => {
-    if (!gameRunning || paused) return; hardDrop();
-    dropInterval2 = setInterval(() => { hardDrop(); }, 80);
-  };
-  const stopHardDrop = () => clearInterval(dropInterval2);
-  btnDrop.addEventListener('touchstart', e => { e.preventDefault(); startHardDrop(); });
-  btnDrop.addEventListener('touchend', stopHardDrop);
-  btnDrop.addEventListener('mousedown', e => { e.preventDefault(); startHardDrop(); });
-  btnDrop.addEventListener('mouseup', stopHardDrop);
-  btnDrop.addEventListener('mouseleave', stopHardDrop);
+  const startHard = () => { if (!gameRunning || paused) return; hardDrop(); hardDropTimer = setInterval(hardDrop, 80); };
+  const stopHard = () => clearInterval(hardDropTimer);
+  ['touchstart','mousedown'].forEach(e => btnDrop.addEventListener(e, e2 => { e2.preventDefault(); startHard(); }));
+  ['touchend','mouseup','mouseleave'].forEach(e => btnDrop.addEventListener(e, stopHard));
 }
 
-// 旋转按钮（独立于D-pad）
 bindBtn('btn-rotate', doRotate);
-
-// 暂停按钮
 const pauseBtn = document.getElementById('pause-btn');
 if (pauseBtn) bindBtn('pause-btn', () => { if (gameRunning) paused = !paused; });
 
@@ -478,24 +451,22 @@ function bindMobile(id, fn) {
   if (!el) return;
   ['touchstart', 'mousedown'].forEach(evt => el.addEventListener(evt, e => { e.preventDefault(); e.stopPropagation(); fn(); }));
 }
+// 注意：桌面版 m-down 也不再加分（已由 moveDown 函数处理）
 bindMobile('m-left', moveLeft); bindMobile('m-right', moveRight);
-bindMobile('m-down', () => { moveDown(); score += 1; updateUI(); });
-bindMobile('m-rotate', doRotate); bindMobile('m-drop', hardDrop);
+bindMobile('m-down', moveDown); bindMobile('m-rotate', doRotate); bindMobile('m-drop', hardDrop);
 
-// ===== 重启 & 暂停覆盖层 =====
+// ===== 覆盖层 =====
 function showOverlay(title, msg) {
-  const overlay = document.getElementById('overlay');
   document.getElementById('overlay-title').textContent = title;
   document.getElementById('overlay-msg').textContent = msg;
-  overlay.classList.add('show');
+  document.getElementById('overlay').classList.add('show');
 }
 function hideOverlay() { document.getElementById('overlay').classList.remove('show'); }
-
 document.getElementById('restart-btn').addEventListener('click', () => { hideOverlay(); startGame(); });
 
 // ===== 游戏控制 =====
 function startGame() {
-  initBoard(); score = 0; level = 1; lines = 0; dropInterval = 800;
+  initBoard(); score = 0; level = 1; linesCount = 0; dropInterval = 800;
   gameRunning = true; paused = false; nextPiece = null;
   updateUI(); spawnPiece(); hideOverlay();
   lastDrop = performance.now();
@@ -508,14 +479,6 @@ function gameOver() {
   showOverlay('GAME OVER', `得分: ${score}`);
 }
 
-function drawPaused() {
-  ctx.fillStyle = 'rgba(0,0,0,0.6)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#fff'; ctx.font = 'bold 32px sans-serif'; ctx.textAlign = 'center';
-  ctx.fillText('PAUSED', canvas.width/2, canvas.height/2);
-  ctx.font = '16px sans-serif'; ctx.fillStyle = '#aaa';
-  ctx.fillText(paused ? '按 P / II 继续' : '', canvas.width/2, canvas.height/2 + 30);
-}
-
 function drawStartScreen() {
   ctx.fillStyle = '#111'; ctx.fillRect(0, 0, canvas.width, canvas.height);
   const colors = ['#00f0f0','#f0f000','#a000f0','#00f000','#f00000','#0000f0','#f0a000'];
@@ -524,25 +487,19 @@ function drawStartScreen() {
   }
   ctx.fillStyle = 'rgba(0,0,0,0.7)';
   const isMobile = window.innerWidth <= 768;
-  const mw = isMobile ? canvas.width - 40 : 280, mh = isMobile ? 140 : 120;
+  const mw = isMobile ? canvas.width - 30 : 260, mh = isMobile ? 100 : 110;
   ctx.fillRect(canvas.width/2 - mw/2, canvas.height/2 - mh/2, mw, mh);
   ctx.strokeStyle = '#667eea'; ctx.lineWidth = 2;
   ctx.strokeRect(canvas.width/2 - mw/2, canvas.height/2 - mh/2, mw, mh);
-  ctx.fillStyle = '#fff'; ctx.font = `bold ${isMobile ? 28 : 36}px sans-serif`; ctx.textAlign = 'center';
+  ctx.fillStyle = '#fff'; ctx.font = `bold ${isMobile ? 24 : 32}px sans-serif`; ctx.textAlign = 'center';
   ctx.fillText('俄罗斯方块', canvas.width/2, canvas.height/2 - 10);
-  ctx.font = `${isMobile ? 14 : 16}px sans-serif`; ctx.fillStyle = '#aaa';
+  ctx.font = `${isMobile ? 13 : 15}px sans-serif`; ctx.fillStyle = '#aaa';
   const clickText = isMobile ? '点击屏幕开始' : '按 Enter / 点击画布开始';
-  ctx.fillText(clickText, canvas.width/2, canvas.height/2 + 20);
+  ctx.fillText(clickText, canvas.width/2, canvas.height/2 + 18);
 }
 
-// 点击画布开始
 canvas.addEventListener('click', () => { if (!gameRunning) startGame(); });
-
-// ===== 启动 =====
 drawStartScreen();
-
-// 窗口大小变化时调整（桌面版固定尺寸，手机版不频繁触发）
-window.addEventListener('resize', () => {});
 </script>
 </body>
 </html>
